@@ -1,5 +1,5 @@
 #!/bin/sh
-
+OSM_PBF_FILE="israel-and-palestine-latest.osm.pbf"
 FLAG_FILE="osm/first_run.flag"
 MAX_AGE_DAYS=30
 
@@ -13,9 +13,9 @@ if [[ ! -f "$FLAG_FILE" ]]; then
     touch "$FLAG_FILE";
 fi
 
-if ! diff <(cd osm; md5sum israel-and-palestine-latest.osm.pbf) <(curl https://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf.md5); then
+if [[ ! -f "osm/$OSM_PBF_FILE" ]] || ! diff <(cd osm; md5sum $OSM_PBF_FILE) <(wget -O - https://download.geofabrik.de/asia/$OSM_PBF_FILE.md5); then
   echo "download pbf...";
-  wget https://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf -O osm/israel-and-palestine-latest.osm.pbf;
+  wget https://download.geofabrik.de/asia/$OSM_PBF_FILE -O osm/$OSM_PBF_FILE;
   echo "Updating POI database"
   python manage.py import-data;
 fi
