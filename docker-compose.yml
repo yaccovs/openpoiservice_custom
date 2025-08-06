@@ -5,6 +5,17 @@ networks:
  poi_network:
 
 services:
+ nominatim:
+  image: mediagis/nominatim
+  port:
+    - "5001:8080"
+  environment:
+    - PBF_PATH=/deploy/app/osm/israel-and-palestine-latest.osm.pbf
+  depends_on:
+    - api
+  volumes:
+    - ./osm:/deploy/app/osm
+    
  api:
   container_name: ops-api
   build: .
