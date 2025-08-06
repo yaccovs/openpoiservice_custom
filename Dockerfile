@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.authors="Timothy Ellersiek <timothy@openrouteserv
 # protobuf is required to parse osm files.
 # git to install imposm-parser via pip from github
 # build-essential to build imposm-parser
-RUN apt-get update && apt-get install -y libprotobuf-dev protobuf-compiler locales git build-essential
+RUN apt-get update && apt-get install -y libprotobuf-dev protobuf-compiler locales git build-essential wget
 
 # Set the locale
 ENV LANG=C.UTF-8 LANGUAGE=C:en LC_ALL=C.UTF-8
