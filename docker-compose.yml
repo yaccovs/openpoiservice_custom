@@ -10,8 +10,8 @@ services:
   build: .
   volumes:
   - ./osm:/deploy/app/osm
-  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
-  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
+#  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
+#  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
   ports:
    - "5000:5000"
   depends_on:
@@ -58,8 +58,8 @@ services:
   volumes:
   - ./osm:/deploy/app/osm
   - ./import-log.json:/deploy/app/import-log.json
-  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
-  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
+#  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
+#  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
   depends_on:
     db:
       condition: service_healthy
@@ -76,8 +76,8 @@ services:
   volumes:
   - ./osm:/deploy/app/osm
   - ./import-log.json:/deploy/app/import-log.json
-  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
-  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
+#  - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
+#  - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
   depends_on:
     db:
       condition: service_healthy
@@ -94,8 +94,8 @@ services:
   volumes:
    - ./osm:/deploy/app/osm
    - ./osm_test:/deploy/app/osm_test
-   - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
-   - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
+#   - ./ops_settings_docker.yml:/deploy/app/openpoiservice/server/ops_settings.yml
+#   - ./categories_docker.yml:/deploy/app/openpoiservice/server/categories/categories.yml
   depends_on:
     db:
       condition: service_healthy

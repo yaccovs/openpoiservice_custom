@@ -16,5 +16,7 @@ RUN pip3 install -r /deploy/app/requirements.txt
 COPY gunicorn_config.py run.sh manage.py ./
 COPY openpoiservice ./openpoiservice
 
+COPY categories_docker.yml /deploy/app/openpoiservice/server/categories/categories.yml
+COPY ops_settings_docker.yml /deploy/app/openpoiservice/server/ops_settings.yml
 EXPOSE 5000
 ENTRYPOINT ["/bin/bash", "run.sh"]
